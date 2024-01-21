@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TV Channel Viewer</title>
+  <style>
+    body {
+      display: flex;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+    }
+
+    #channelList {
+      width: 200px;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      box-sizing: border-box;
+      height: 100%;
+    }
+
+    #videoPlayer {
+      flex: 1;
+      padding: 20px;
+      box-sizing: border-box;
+      height: 100%;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #555;
+      color: #fff;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="channelList">
+    <button onclick="openVideoInSameWindow('https://shls-masr-ak.akamaized.net/out/v1/d5036cabf11e45bf9d0db410ca135c18/index.m3u8')">MBC Masr</button>
+    <button onclick="openDailymotionChannel('https://www.dailymotion.com/embed/video/x5gv5rr?autoplay=1')">C8-FR </button>
+    <button onclick="openDailymotionChannel('http://www.dailymotion.com/embed/video/x5gv6be?autoplay=1')">Canal+-FR </button> 
+    <button onclick="openVideoInSameWindow('https://shls-m6-france-prod-dub-ak.akamaized.net/out/v1/c8a9f6e000cd4ebaa4d2fc7d18c15988/index.m3u8')">M6 FR</button>
+    <button onclick="openVideoInSameWindow('https://cherie25.nrjaudio.fm/hls/live/2038375/c25/MD.m3u8')">Cherie 24 FR</button>
+    <button onclick="openVideoInSameWindow('https://watch.3rbcafee.com/2023/12/m-b-c-two-server-222.html')">MBC 2 - AR</button>
+    <button onclick="openVideoInSameWindow('https://watch.3rbcafee.com/2023/05/blog-post_12.html')">MBC MAX - AR</button>
+    <button onclick="openVideoInSameWindow('http://nxt.plus:8080/get.php?username=alexandrawwr&password=223348&type=m3u_plus')">TRY - AR</button>
+    <button onclick="openVideoInSameWindow('https://www.youtube.com/embed/kWd2bAif3YY?si=FtACQ8548BZsQ6AL')">Bein الاخبارية - AR</button>
+
+
+
+
+   <!-- Add more buttons for other channels as needed -->
+  </div>
+
+  <div id="videoPlayer">
+    <iframe id="videoPlayerIframe" frameborder="0" scrolling="no" allowfullscreen allow="autoplay"></iframe>
+  </div>
+
+  <script>
+    function openVideoInSameWindow(videoUrl) {
+      var videoPlayerIframe = document.getElementById('videoPlayerIframe');
+      videoPlayerIframe.src = 'http://www.azrotv.com/pyr/?id=' + encodeURIComponent(videoUrl);
+    }
+
+    function openDailymotionChannel(dailymotionUrl) {
+      var videoPlayerIframe = document.getElementById('videoPlayerIframe');
+      videoPlayerIframe.src = dailymotionUrl;
+    }
+  </script>
+
+</body>
+</html>
